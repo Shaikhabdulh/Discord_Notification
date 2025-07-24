@@ -11,9 +11,7 @@ name: Daily Standup Reminder
 # ✅ When to trigger the workflow
 on:
   workflow_dispatch:  # Manual trigger
-  schedule:
-     - cron: '15 * * * *'  # Runs at 7:25 AM UTC = 12:55 PM IST, Monday–Friday
-jobs:
+  jobs:
   send-reminder:
     runs-on: ubuntu-latest
     steps:
