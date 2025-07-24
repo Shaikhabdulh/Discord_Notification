@@ -1,0 +1,48 @@
+# 📁 File: .github/workflows/standup-reminder.yml
+
+# ========================================
+# 🧭 PURPOSE:
+# Set up a GitHub Action that sends a Discord reminder to join daily standup meetings,
+# skipping weekends and optionally including a motivational quote.
+# ========================================
+
+name: Daily Standup Reminder
+
+# ✅ When to trigger the workflow
+on:
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '20 12 * * 1-5'  # 🕕 Runs at 5:50 PM IST (which is 12:20 PM UTC) on Mon–Fri
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+
+      # 📦 Step 1: Checkout repo code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 🐍 Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 📚 Step 3: Install required Python packages
+      - name: Install dependencies
+        run: pip install requests pytz discord.py
+
+      # 🕒 Step 4: Print current UTC time (for debug)
+      - name: Print Current Time in UTC
+        run: |
+          echo "🕒 Current UTC Time:"
+          date -u
+
+      # 🤖 Step 5: Run the bot script
+      - name: Run bot to send reminder
+        run: python bot.py
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          THREAD_ID: ${{ secrets.THREAD_ID }}
+          ROLE_ID: ${{ secrets.ROLE_ID }}
