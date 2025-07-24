@@ -12,8 +12,7 @@ name: Daily Standup Reminder
 on:
   workflow_dispatch:  # Manual trigger
   schedule:
-    - cron: '*/1 * * * *'  # Every 5 minutes (for test) 🕖 Runs at 11:41 AM IST (which is 6:11 AM UTC) on Mon–Fri
-
+     - cron: '8 7 * * 1-5'  # Runs at 7:08 AM UTC = 12:38 PM IST, Monday–Friday
 jobs:
   send-reminder:
     runs-on: ubuntu-latest
