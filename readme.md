@@ -17,11 +17,13 @@ This document walks you through everything you need to set up a Discord bot that
 ## 📁 Project Structure
 
 ```
-.
-├── bot.py                          # Python script to send the message
+/my-repo
+├── bot.py
+├── README.md         # Main guide
+├── ROLE_ID.md        # Linked from main README
 └── .github/
     └── workflows/
-        └── standup-reminder.yml   # GitHub Actions workflow
+        └── standup-reminder.yml
 ```
 
 ---
