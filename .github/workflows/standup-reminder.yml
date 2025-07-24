@@ -1,17 +1,9 @@
-# 📁 File: .github/workflows/standup-reminder.yml
-
-# ========================================
-# 🧭 PURPOSE:
-# Set up a GitHub Action that sends a Discord reminder to join daily standup meetings,
-# skipping weekends and optionally including a motivational quote.
-# ========================================
-
 name: Daily Standup Reminder
 
-# ✅ When to trigger the workflow
 on:
   workflow_dispatch:  # Manual trigger
-  jobs:
+
+jobs:
   send-reminder:
     runs-on: ubuntu-latest
     steps:
