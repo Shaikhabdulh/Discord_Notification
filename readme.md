@@ -40,7 +40,7 @@ This document walks you through everything you need to set up a Discord bot that
 
 * Go to **User Settings → Advanced → Enable Developer Mode**
 * Right-click your desired channel and role → Copy IDs for `THREAD_ID` and `ROLE_ID`
-
+# For More Detailed Explanation, Follow Below Steps
 ---
 ## 🔧 Get Your Discord IDs (Enable Developer Mode)
 
